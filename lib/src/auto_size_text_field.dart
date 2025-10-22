@@ -429,6 +429,8 @@ class AutoSizeTextField extends StatefulWidget {
 
   final double? minWidth;
 
+  final void Function(PointerDownEvent)? onTapOutside;
+
   /// Creates a [AutoSizeTextField] widget.
   ///
   /// If the [style] argument is null, the text will use the style from the
@@ -493,6 +495,7 @@ class AutoSizeTextField extends StatefulWidget {
     this.minLines,
     this.minWidth,
     this.selectionControls,
+    this.onTapOutside,
   })  : textSpan = null,
         smartDashesType = smartDashesType ?? (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
         smartQuotesType = smartQuotesType ?? (obscureText ? SmartQuotesType.disabled : SmartQuotesType.enabled),
@@ -611,6 +614,7 @@ class _AutoSizeTextFieldState extends State<AutoSizeTextField> {
         textDirection: widget.textDirection,
         textInputAction: widget.textInputAction,
         selectionControls: widget.selectionControls,
+        onTapOutside: widget.onTapOutside,
       ),
     );
   }
